@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:a4j="http://richfaces.org/a4j"
+     xmlns:rich="http://richfaces.org/rich">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <f:view>
+	<center>
+    	<h:panelGrid width="20%" columns="2" columnClasses="col1,col2">
+        <rich:panel>
+            <f:facet name="header">
+            <h:outputText value="Login Panel" />
+            	
+            </f:facet>
+            <h:form>
+            	    <h:outputText value="Nombre" /> 
+                    <h:inputText id="Nombre" value="#{UserInfoBean.nombre}" styleClass="inputbox"/>
+                    <h:outputText value=""/>
+                    <h:message for="Nombre" styleClass="errors"/>
+                    <br/><br/>
+                    
+                    <h:outputText value="Apellido"/> 
+                    <h:inputText id="Apellido" value="#{UserInfoBean.apellido}" styleClass="inputbox"/>
+                    <h:outputText value=""/>
+                    <h:message for="Apellido" styleClass="errors"/>
+                    <br/><br/>
+                    
+                    <h:outputText value="Cedula"/> 
+                    <h:inputText id="Cedula" value="#{UserInfoBean.cedula}" styleClass="inputbox"/>
+                    <h:outputText value=""/>
+                    <h:message for="Cedula" styleClass="errors"/>
+                    <br/><br/>
+                    
+                    <center>
+                        <h:commandButton value="Logearse" action="#{UserInfoBean.guardar}" styleClass="submitButton"/>
+                    </center>
+            </h:form>
+        </rich:panel>
+    	</h:panelGrid>
+    	<br/>
+		</center>
+</f:view>
+</html>
+
