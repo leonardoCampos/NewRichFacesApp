@@ -18,26 +18,22 @@
             	
             </f:facet>
             <h:form>
-            	    <h:outputText value="Nombre" /> 
-                    <h:inputText id="Nombre" value="#{UserInfoBean.nombre}" styleClass="inputbox"/>
-                    <h:outputText value=""/>
-                    <h:message for="Nombre" styleClass="errors"/>
-                    <br/><br/>
-                    
-                    <h:outputText value="Apellido"/> 
-                    <h:inputText id="Apellido" value="#{UserInfoBean.apellido}" styleClass="inputbox"/>
-                    <h:outputText value=""/>
-                    <h:message for="Apellido" styleClass="errors"/>
-                    <br/><br/>
-                    
-                    <h:outputText value="Cedula"/> 
-                    <h:inputText id="Cedula" value="#{UserInfoBean.cedula}" styleClass="inputbox"/>
-                    <h:outputText value=""/>
-                    <h:message for="Cedula" styleClass="errors"/>
-                    <br/><br/>
-                    
                     <center>
-                        <h:commandButton value="Logearse" action="#{UserInfoBean.guardar}" styleClass="submitButton"/>
+                        <rich:dropDownMenu label="Usuario">
+                            <rich:menuItem label="Ingresar" action="GestionarUsuario/IngresarUsuario"></rich:menuItem> 
+                            <rich:menuItem label="Modificar" action="GestionarUsuario/ModificarUsuario"></rich:menuItem> 
+                            <rich:menuItem label="Eliminar" action="GestionarUsuario/EliminarUsuario"></rich:menuItem> 
+                        </rich:dropDownMenu>
+                        <rich:dropDownMenu label="Cliente">
+                            <rich:menuItem label="Ingresar" action="GestionarCliente/IngresarCliente"></rich:menuItem> 
+                            <rich:menuItem label="Modificar" action="GestionarCliente/ModificarCliente"></rich:menuItem> 
+                            <rich:menuItem label="Eliminar" action="GestionarCliente/EliminarCliente"></rich:menuItem> 
+                        </rich:dropDownMenu>
+                        <rich:dropDownMenu label="Amonestacion">
+                            <rich:menuItem label="Ingresar" action="GestionarAmonestacion/IngresarAmonestacion"></rich:menuItem> 
+                            <rich:menuItem label="Modificar" action="GestionarAmonestacion/ModificarAmonestacion"></rich:menuItem> 
+                            <rich:menuItem label="Eliminar" action="GestionarAmonestacion/EliminarAmonestacion"></rich:menuItem> 
+                        </rich:dropDownMenu>
                     </center>
             </h:form>
         </rich:panel>

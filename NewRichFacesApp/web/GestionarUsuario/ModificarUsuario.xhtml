@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:a4j="http://richfaces.org/a4j"
+     xmlns:rich="http://richfaces.org/rich">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <f:view>
+	<center>
+    	<h:panelGrid width="20%" columns="2" columnClasses="col1,col2">
+        <rich:panel>
+            <f:facet name="header">
+            <h:outputText value="Login Panel" />
+            	
+            </f:facet>
+            <h:form>
+                    <center>
+                        Nombre<rich:select defaultLabel="selecciona un usuario"  value="#{myBean.ajxName}">
+                            <f:selectItems value="#{myBean.usuarios}"/>
+                            </rich:select>
+                        <a4j:commandButton value="Consultar" render="out"/>
+                        <br></br>
+                        <h:panelGroup id="out">
+                            <table>
+                                <td>
+                                    <tr>
+                                        <h:outputText value="ID"/>
+                                    </tr>
+                                    <tr>
+                                         <h:outputText value="#{myBean.ajxName}"/>
+                                    </tr>
+                                    <tr>
+                                        
+                                    </tr>
+                                </td>
+                                <br></br>
+                                <td>
+                                    <tr>
+                                        <h:outputText value="NOMBRE"/>
+                                    </tr>
+                                    <tr>
+                                        <h:outputText value="#{myBean.ajxNombre}"/>
+                                    </tr>
+                                </td>
+                                <br></br>
+                                <td>
+                                     <tr>
+                                        <h:outputText value="CEDULA"/>
+                                    </tr>
+                                    <tr>
+                                        <h:outputText value="#{myBean.ajxCedula}"/>
+                                    </tr>
+                                </td>
+                                <br></br>
+                                <td>
+                                    <tr>
+                                        <h:outputText value="DIRECCION"/>
+                                    </tr>
+                                    <tr>
+                                        <h:outputText value="#{myBean.ajxDireccion}"/>
+                                    </tr>
+                                </td>
+                            </table>
+                        </h:panelGroup>
+                         <center>
+                            Nuevo Nombre<h:inputText id="nombre" value="#{myBean.usuarioNombre}" ></h:inputText>
+                            <br></br>
+                            Nueva Direccion<h:inputText id="direccion" value="#{myBean.usuarioDireccion}"></h:inputText>
+                            <br></br>
+                            Nueva Cedula <h:inputText id="cedula" value="#{myBean.usuarioCedula}"></h:inputText>
+                            <br></br>
+                            <h:commandButton value="Guardar" action="#{myBean.actualizarUsuario}"></h:commandButton>
+                    </center>
+                    </center>
+            </h:form>
+        </rich:panel>
+    	</h:panelGrid>
+    	<br/>
+		</center>
+</f:view>
+</html>
