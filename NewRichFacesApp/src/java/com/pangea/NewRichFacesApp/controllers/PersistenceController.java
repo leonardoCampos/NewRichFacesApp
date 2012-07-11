@@ -4,7 +4,6 @@
  */
 package com.pangea.NewRichFacesApp.controllers;
 
-import com.pangea.NewRichFacesApp.Entities.cliente;
 import com.pangea.NewRichFacesApp.Entities.usuario;
 import java.util.*;
 import javax.faces.model.SelectItem;
@@ -48,16 +47,13 @@ public class PersistenceController {
     options= new ArrayList();
     SelectItem option = new SelectItem("ch1", "choice1", "This bean is for selectItems tag", true);
     options.add(option);
-    Object aux = new Object();
-    usuario actual=null;
     try{
         em.getTransaction().begin();
         Query query = em.createQuery("SELECT st FROM USERS st");
         List lst = query.getResultList();
         Iterator it = lst.iterator();
         while (it.hasNext()){
-           aux =  it.next();
-           actual = (usuario) aux;
+           usuario actual = (usuario) it.next();
            option = new SelectItem(actual.getId(),actual.getNombre());
           options.add(option);
         }
@@ -115,29 +111,6 @@ public class PersistenceController {
         {
             e.printStackTrace();
         }
-    }
-    
-    public void addClient(cliente newclient,Long id)
-    {
-        EntityManager em = getEntityManager();
-        EntityManager em2 = getEntityManager();
-        usuario user;
-        try{
-        em.getTransaction().begin();
-        user = em.find(usuario.class,id);
-        user.agregarCliente(newclient);
-        newclient.setMyusuario(user);
-        em.persist(newclient);
-        em.merge(user);
-        em.getTransaction().commit();
-        em.close();
-        
-        
-        
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        
     }
     
 }
