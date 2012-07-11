@@ -26,7 +26,9 @@ public class usuario implements Serializable {
     
     @OneToMany(mappedBy = "myusuario")
     private List<amonestacion> amonestacions;
+    
     @OneToMany(mappedBy = "myusuario")
+    @JoinColumn(name="usuario_id")
     private List<cliente> clientes;
     
     private static final long serialVersionUID = 1L;
@@ -66,7 +68,10 @@ public class usuario implements Serializable {
         this.cedula = cedula;
     }
 
-
+    public void agregarCliente(cliente nuevoCliente)
+    {
+        this.clientes.add(nuevoCliente);
+    }
 
     public String getDireccion() {
         return direccion;

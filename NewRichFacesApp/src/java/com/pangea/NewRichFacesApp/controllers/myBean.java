@@ -4,6 +4,7 @@
  */
 package com.pangea.NewRichFacesApp.controllers;
 
+import com.pangea.NewRichFacesApp.Entities.cliente;
 import com.pangea.NewRichFacesApp.Entities.usuario;
 import java.io.IOException;
 import java.util.Collection;
@@ -27,6 +28,11 @@ public class myBean {
     String ajxNombre;
     String ajxDireccion;
     String ajxCedula;
+    
+    String clienteNombre;
+    String clienteCuenta;
+    String clienteCedula;
+    
     Collection<SelectItem> usuarios;
 
     public myBean(){
@@ -94,7 +100,7 @@ public class myBean {
         
     }
     
-    public void actualizarUsuario()
+    public void actualizarUsuario() throws IOException
     {
         usuario newUser = new usuario();
         newUser.setCedula(this.usuarioCedula);
@@ -102,7 +108,19 @@ public class myBean {
         newUser.setNombre(this.usuarioNombre);
         newUser.setId(Long.parseLong(getAjxName()));
         PC.updateUser(newUser);
+        FacesContext.getCurrentInstance().getExternalContext().dispatch("../index.xhtml");
     }
+    
+    public void IngresarCliente() throws IOException
+    {
+        cliente nuevoCliente = new cliente();
+        nuevoCliente.setCedula(this.clienteCedula);
+        nuevoCliente.setNombre(this.clienteNombre);
+        nuevoCliente.setNro_cuenta(this.clienteCuenta);
+        PC.addClient(nuevoCliente, Long.parseLong(this.ajxName));
+        FacesContext.getCurrentInstance().getExternalContext().dispatch("../index.xhtml");
+    }
+    
     
     public void EliminarUsuario()
     {
@@ -131,6 +149,30 @@ public class myBean {
 
     public void setAjxNombre(String ajxNombre) {
         this.ajxNombre = ajxNombre;
+    }
+
+    public String getClienteCedula() {
+        return clienteCedula;
+    }
+
+    public void setClienteCedula(String clienteCedula) {
+        this.clienteCedula = clienteCedula;
+    }
+
+    public String getClienteCuenta() {
+        return clienteCuenta;
+    }
+
+    public void setClienteCuenta(String clienteCuenta) {
+        this.clienteCuenta = clienteCuenta;
+    }
+
+    public String getClienteNombre() {
+        return clienteNombre;
+    }
+
+    public void setClienteNombre(String clienteNombre) {
+        this.clienteNombre = clienteNombre;
     }
     
     

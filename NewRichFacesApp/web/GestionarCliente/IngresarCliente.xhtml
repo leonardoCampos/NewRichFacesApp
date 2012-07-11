@@ -10,10 +10,67 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core"
      xmlns:a4j="http://richfaces.org/a4j"
      xmlns:rich="http://richfaces.org/rich">
-    <head>
-        <title>Ingresar Cliente</title>
-    </head>
-    <f:view>
-        <ric
-    </f:view>
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+     <f:view>
+	<center>
+    	<h:panelGrid width="20%" columns="2" columnClasses="col1,col2">
+        <rich:panel>
+            <f:facet name="header">
+            <h:outputText value="Login Panel" />
+            	
+            </f:facet>
+            <h:form>
+                    <center>
+                        <rich:select defaultLabel="selecciona un usuario"  value="#{myBean.ajxName}">
+                            <f:selectItems value="#{myBean.usuarios}"/>
+                            </rich:select>
+                        <br></br>
+                        <br></br>
+                        <h:panelGroup id="out">
+                            <table>
+                                <td>
+                                    <tr>
+                                        <h:outputText value="NOMBRE: "/>
+                                    </tr>
+                                    <tr>
+                                        <h:inputText value="#{myBean.clienteNombre}"/>
+                                    </tr>
+                                </td>
+                                <br></br>
+                                <td>
+                                     <tr>
+                                        <h:outputText value="CEDULA: "/>
+                                    </tr>
+                                    <tr>
+                                        <h:inputText value="#{myBean.clienteCedula}"/>
+                                    </tr>
+                                </td>
+                                <br></br>
+                                <td>
+                                    <tr>
+                                        <h:outputText value="CUENTA: "/>
+                                    </tr>
+                                    <tr>
+                                        <h:inputText value="#{myBean.clienteCuenta}"/>
+                                    </tr>
+                                </td>
+                                <br></br>
+                                <br></br>
+                                <td>
+                                    <tr>
+                                        <h:commandButton value="Registrar" action="#{myBean.IngresarCliente}"/>
+                                    </tr>
+                                </td>
+                            </table>
+                        </h:panelGroup>
+                        
+                    </center>
+            </h:form>
+        </rich:panel>
+    	</h:panelGrid>
+    	<br/>
+		</center>
+</f:view>
 </html>
