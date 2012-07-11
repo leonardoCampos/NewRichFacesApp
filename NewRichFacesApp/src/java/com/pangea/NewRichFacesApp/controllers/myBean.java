@@ -11,7 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
-//this is MY BEAN!! No it is not!!!
+//this is MY BEAN!! No it is not!!! yes, it is!!
 /**
  *
  * @author pangea
